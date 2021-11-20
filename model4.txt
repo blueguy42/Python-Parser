@@ -1,0 +1,6 @@
+Terminals:
+if else
+Variables:
+S
+Productions:
+S -> e | S S | if S | if S else S

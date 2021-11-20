@@ -1,0 +1,6 @@
+S -> S S | Z S | Z A1 | if
+A1 -> S A2 | Y S | else
+A2 -> Y S | else
+Z -> if
+Y -> else
+S0 -> S S | Z S | Z A1 | S S | Z S | Z A1 | if | S S | Z S | Z A1 | if | if
