@@ -8,9 +8,9 @@ ASSIGN -> = | += | -= | *= | += | -= | *= | /= | %= | //= | **=;
 ALPHABET -> a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z;
 WHOLEWORD -> WHOLEWORD WHOLEWORD | ALPHABET | ESCAPE | \ | : | . | _ | ; | ,;
 ESCAPE -> \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh;
-INTEGER -> INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0; 
 
-// base pembentukan datatype float, complex, dan bilangan negatif
+// base pembentukan datatype int, float, complex, dan bilangan negatif
+INTEGER -> INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0; 
 FLOAT -> INTEGER . INTEGER;
 COMPLEX -> FLOAT + FLOAT j | FLOAT - FLOAT j | - FLOAT + FLOAT j | - FLOAT - FLOAT j | INTEGER + FLOAT j | INTEGER - FLOAT j | - INTEGER + FLOAT j | - INTEGER - FLOAT j | FLOAT + INTEGER j | FLOAT - INTEGER j | - FLOAT + INTEGER j | - FLOAT - INTEGER j | INTEGER + INTEGER j | INTEGER - INTEGER j | - INTEGER + INTEGER j | - INTEGER - INTEGER j;
 NEGATIVEINTEGER -> - INTEGER;
