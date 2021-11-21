@@ -4,6 +4,8 @@ START VARIABLE VALUE INTEGER STRING FLOAT BOOLEAN LIST SET DICTIONARY TUPLE COMP
 Productions:
 // base pembentukan bilangan dan kata
 ALPHABET -> a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z;
+WHOLEWORD -> WHOLEWORD WHOLEWORD | ALPHABET | ESCAPE | \ | : | . | _ | ; | ,;
+ESCAPE -> \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh;
 INTEGER -> INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0; 
 
 // base pembentukan datatype float, complex, dan bilangan negatif
@@ -11,6 +13,7 @@ FLOAT -> INTEGER . INTEGER;
 COMPLEX -> FLOAT + FLOAT j | FLOAT - FLOAT j | - FLOAT + FLOAT j | - FLOAT - FLOAT j | INTEGER + FLOAT j | INTEGER - FLOAT j | - INTEGER + FLOAT j | - INTEGER - FLOAT j | FLOAT + INTEGER j | FLOAT - INTEGER j | - FLOAT + INTEGER j | - FLOAT - INTEGER j | INTEGER + INTEGER j | INTEGER - INTEGER j | - INTEGER + INTEGER j | - INTEGER - INTEGER j;
 NEGATIVEINTEGER -> - INTEGER;
 NEGATIVEFLOAT -> - FLOAT
+ALLNUMBERS -> FLOAT | INTEGER | COMPLEX | NEGATIVEFLOAT | NEGATIVEINTEGER;
 
 // base pembentukan variable
 VARIABLE -> ALPHABET BACKVARIABLE | _ BACKVARIABLE;
@@ -22,10 +25,35 @@ COMPARISON -> > | < | > = | < = | = = | ! =;
 VALUE -> ( VALUE ) | INTEGER | FLOAT | NEGATIVEFLOAT | NEGATIVEINTEGER | COMPLEX | STRING | BOOLEAN | VALUE COMPARISON VALUE;  
 OPERATORS -> + | - | * | % | * * | / | / /;
 
+// base untuk string dan output
+STRING -> STRING STRING | ALPHABET | WHOLEWORD | ALLNUMBERS | " STRING " | ' STRING ' | STRING + STRING;
+PRINT -> print ( STRING ) | print ( VARIABLE );
+
 COMMENT -> # STRING | " " " STRING " " " | ' ' ' STRING ' ' ';
 ASSIGNMENT -> VARIABLE | VALUE | VALUE OPERATORS VALUE | INPUT | METHOD;
-STRING -> STRING STRING | ALPHABET | " ALPHABET " | ' ALPHABET ' | STRING + STRING;
 FOR -> for VARIABLE in range ( INTEGER ) : | for VARIABLE in range ( INTEGER , INTEGER ) : | for VARIABLE in range ( INTEGER , INTEGER , INTEGER ) : | for VARIABLE in VARIABLE :;
+BREAK -> break;
+PASS -> pass;
+CONTINUE -> continue;
 WHILE -> while BOOLEAN :;
+FROM -> from VAR IMPORT;
 IMPORT -> import VARIABLE | import VARIABLE as VARIABLE;
 CLASS -> class VARIABLE :;
+LOOPVARIABLE -> LOOPVARIABLE , LOOPVARIABLE | VARIABLE;
+DEF -> def VARIABLE ( LOOPVARIABLE ) :;
+
+// Conditionals
+IF -> if BOOLEAN :;
+ELIF -> elif BOOLEAN :;
+ELSE -> else :;
+INPUT -> input ( VARIABLE ) | TYPECASTING ( INPUT );
+RETURN -> return | return BOOLEAN | return ALLNUMBERS | return VARIABLE | return STRING;
+TYPECASTING -> float | int | complex;
+
+// Iterated Elements
+ELEMENT -> ELEMENT , ELEMENT | STRING | ALLNUMBERS;
+LIST -> [ ELEMENT ] | [ LIST ];
+TUPLE -> ( ELEMENT ) | ( TUPLE );
+SET -> { ELEMENT } | { SET };
+DICTELEMENT -> DICTELEMENT , DICTELEMENT | " VARIABLE " : STRING | " VARIABLE " : DICTIONARY;
+DICTIONARY -> { DICTELEMENT };
