@@ -1,6 +1,0 @@
-S -> SS ZS ZA1 'if'
-A1 -> S A2 YS 'else'
-A2 -> YS 'else'
-Z -> 'if'
-Y -> 'else'
-S0 -> SS ZS ZA1 SS ZS ZA1 'if' SS ZS ZA1 'if' 'if'

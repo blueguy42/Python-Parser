@@ -1,0 +1,86 @@
+// Referensi CFG : https://people.cs.clemson.edu/~goddard/texts/theoryOfComputation/6a.pdf
+// Referensi keyword list dari Python : https://www.programiz.com/python-programming/keyword-list
+// Isi dari variabel itu semua 
+
+TERMINAL:
+// Introduction to Python (I/O etc.)
+input print exit
+
+// Comments
+#
+
+// Data Types + Variables
+type global str int float complex list tuple range dict set frozenset bool bytes bytearray memoryview
+
+// Closures
+' " ''' """ ( ) [ ] { }
+
+// List Basic Operators
++ - * / % // ** 
+
+// Assignment Operators (Arithmetic)
+= += -= *= /= %= //= **=   
+
+// Basic and Assignment Operators (Bitwise)
+& | ^ ~ << >> &= |= ^= >>= <<=
+
+// Comparison Operators
+== != > < >= <=
+
+// Logical, Identity, Membership Operators
+and or not is in
+
+// String Methods
+upper lower strip replace split format capitalize casefold center count encode endswith expandtabs find format format_map index isallnum isalpha isdecimal isdigit isidentifier islower isnumeric isprintable isspace istitle isupper join ljust lstrip maketrans partition replace rfind rindex rjust rpartition rsplit rstrip splitlines startswith swapcase title translate zfill
+
+// Escape Characters String
+\" \' \\ \n \r \t \b \f \ooo \xhh
+
+// Booleans
+true false none
+
+// List makenya [] dan bisa make semua yg diatas
+// Tuple cuma bisa count sama index aja, dan dia make () dan bukan []. 
+// Set makenya {}. Deletenya bisa make remove/discard
+// Disctionary mirip2 sama JSON
+
+// All Iterable Objects (List, Set, Dict, Tuple)
+iter next stopiteration
+
+// List Only
+len insert append extend remove pop clear sort reverse key copy
+
+// Tuple Only
+* count index
+
+// Set Only
+add update discard union intersection_update intersection symmetric_difference_update symmetric_difference isdisjoint issubset issuperset 
+
+// Dict Only
+get keys values items popitem fromkeys setdefault
+
+// Loops And Conditionals
+for while if else elif pass break continue
+
+// Functions And Procedures
+def return
+
+// Object Oriented Programming
+class __init__ self super
+
+// Modules And Imports
+import dir from as
+
+// numpy, datetime, dll tu perlu ga ya
+
+// File Handling
+open read readline close write
+
+// Alphabets
+a b c d e f g h i j k l m n o p q r s t u v w x y z
+
+// Numbers
+1 2 3 4 5 6 7 8 9 0
+
+// Miscellaneous
+random : . _ , ;
