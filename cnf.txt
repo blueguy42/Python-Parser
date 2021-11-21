@@ -1,0 +1,193 @@
+D2 -> FLOAT ALPHABET | INTEGER C1
+E2 -> FLOAT ALPHABET | INTEGER C1
+F3 -> FLOAT ALPHABET | from | INTEGER C1
+G3 -> FLOAT ALPHABET | while | INTEGER C1
+H2 -> FLOAT ALPHABET | INTEGER C1
+I2 -> FLOAT ALPHABET | INTEGER C1
+J3 -> FLOAT ALPHABET | : | INTEGER C1
+K3 -> FLOAT ALPHABET | for | INTEGER C1
+L2 -> INTEGER ALPHABET | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+M2 -> INTEGER ALPHABET | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+N3 -> INTEGER ALPHABET | # | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+O3 -> INTEGER ALPHABET | print | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+P2 -> INTEGER ALPHABET | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+Q2 -> INTEGER ALPHABET | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+R3 -> INTEGER ALPHABET | is | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+S3 -> INTEGER ALPHABET | not | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+VARIABLE -> ALPHABET BACKVARIABLE | Y3 BACKVARIABLE | BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+START -> START START | VARIABLE A1 | FROM | VARIABLE B1 | A3 U11 | O3 F11 | O3 G11 | K3 K11 | K3 L11 | K3 M11 | K3 N11 | G3 O11 | B3 T11 | C3 R11 | E3 VARIABLE | E3 Q11 | N3 STRING | Q3 H11 | P3 I11
+A1 -> ASSIGN ASSIGNMENT
+B1 -> ASSIGN ITERABLES
+ASSIGN -> = | += | -= | *= | += | -= | *= | /= | %= | //= | **=
+ALPHABET -> a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z
+WHOLEWORD -> WHOLEWORD WHOLEWORD | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
+ESCAPE -> \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
+INTEGER -> INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+Z3 -> .
+FLOAT -> INTEGER C1
+C1 -> Z3 INTEGER
+COMPLEX -> FLOAT D1 | FLOAT E1 | OPERATORS F1 | OPERATORS G1 | INTEGER H1 | INTEGER I1 | OPERATORS J1 | OPERATORS K1 | FLOAT L1 | FLOAT M1 | OPERATORS N1 | OPERATORS O1 | INTEGER P1 | INTEGER Q1 | OPERATORS R1 | OPERATORS S1
+D1 -> OPERATORS D2
+E1 -> OPERATORS E2
+F1 -> FLOAT F2
+F2 -> OPERATORS F3
+G1 -> FLOAT G2
+G2 -> OPERATORS G3
+H1 -> OPERATORS H2
+I1 -> OPERATORS I2
+J1 -> INTEGER J2
+J2 -> OPERATORS J3
+K1 -> INTEGER K2
+K2 -> OPERATORS K3
+L1 -> OPERATORS L2
+M1 -> OPERATORS M2
+N1 -> FLOAT N2
+N2 -> OPERATORS N3
+O1 -> FLOAT O2
+O2 -> OPERATORS O3
+P1 -> OPERATORS P2
+Q1 -> OPERATORS Q2
+R1 -> INTEGER R2
+R2 -> OPERATORS R3
+S1 -> INTEGER S2
+S2 -> OPERATORS S3 | }
+NEGATIVEINTEGER -> OPERATORS INTEGER
+NEGATIVEFLOAT -> OPERATORS FLOATALLNUMBERS
+Y3 -> _
+BACKVARIABLE -> BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+X3 -> (
+W3 -> )
+BOOLEAN -> X3 T1 | true | false | BOOLEAN U1 | BOOLEAN W1 | S3 BOOLEAN | VALUE X1 | VALUE Y1 | VALUE Z1
+T1 -> BOOLEAN W3
+U3 -> and
+U1 -> U3 BOOLEAN
+T3 -> or
+W1 -> T3 BOOLEAN
+X1 -> R3 VALUE
+Y1 -> R3 Y2
+Y2 -> S3 VALUE | else
+Z1 -> COMPARISON VALUE
+VALUE -> X3 A11 | VALUE B11 | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | INTEGER C1 | OPERATORS FLOATALLNUMBERS | OPERATORS INTEGER | FLOAT D1 | FLOAT E1 | OPERATORS F1 | OPERATORS G1 | INTEGER H1 | INTEGER I1 | OPERATORS J1 | OPERATORS K1 | FLOAT L1 | FLOAT M1 | OPERATORS N1 | OPERATORS O1 | INTEGER P1 | INTEGER Q1 | OPERATORS R1 | OPERATORS S1 | STRING STRING | Q3 C11 | P3 D11 | STRING E11 | X3 T1 | true | false | BOOLEAN U1 | BOOLEAN W1 | S3 BOOLEAN | VALUE X1 | VALUE Y1 | VALUE Z1 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | WHOLEWORD WHOLEWORD | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
+A11 -> VALUE W3
+B11 -> COMPARISON VALUE
+OPERATORS -> + | - | * | % | ** | / | //
+STRING -> STRING STRING | Q3 C11 | P3 D11 | STRING E11 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | WHOLEWORD WHOLEWORD | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
+Q3 -> "
+C11 -> STRING Q3
+P3 -> '
+D11 -> STRING P3
+E11 -> OPERATORS STRING
+PRINT -> O3 F11 | O3 G11
+F11 -> X3 F12
+F12 -> STRING W3
+G11 -> X3 G12
+G12 -> VARIABLE W3
+COMMENT -> N3 STRING | Q3 H11 | P3 I11
+H11 -> Q3 H12
+H12 -> Q3 H13
+H13 -> STRING H14
+H14 -> Q3 H15
+H15 -> Q3 Q3
+I11 -> P3 I12
+I12 -> P3 I13
+I13 -> STRING I14
+I14 -> P3 I15
+I15 -> P3 P3
+ASSIGNMENT -> VALUE J11 | METHOD | ALPHABET BACKVARIABLE | Y3 BACKVARIABLE | X3 A11 | VALUE B11 | X2 X11 | TYPECASTING Y11 | BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | INTEGER C1 | OPERATORS FLOATALLNUMBERS | OPERATORS INTEGER | FLOAT D1 | FLOAT E1 | OPERATORS F1 | OPERATORS G1 | INTEGER H1 | INTEGER I1 | OPERATORS J1 | OPERATORS K1 | FLOAT L1 | FLOAT M1 | OPERATORS N1 | OPERATORS O1 | INTEGER P1 | INTEGER Q1 | OPERATORS R1 | OPERATORS S1 | STRING STRING | Q3 C11 | P3 D11 | STRING E11 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | WHOLEWORD WHOLEWORD | X3 T1 | true | false | BOOLEAN U1 | BOOLEAN W1 | S3 BOOLEAN | VALUE X1 | VALUE Y1 | VALUE Z1 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
+J11 -> OPERATORS VALUE
+M3 -> range
+L3 -> in
+FOR -> K3 K11 | K3 L11 | K3 M11 | K3 N11
+K11 -> VARIABLE K12
+K12 -> L3 K13
+K13 -> M3 K14
+K14 -> X3 K15
+K15 -> INTEGER K16
+K16 -> W3 J3
+I3 -> ,
+L11 -> VARIABLE L12
+L12 -> L3 L13
+L13 -> M3 L14
+L14 -> X3 L15
+L15 -> INTEGER L16
+L16 -> I3 L17
+L17 -> INTEGER L18
+L18 -> W3 J3
+M11 -> VARIABLE M12
+M12 -> L3 M13
+M13 -> M3 M14
+M14 -> X3 M15
+M15 -> INTEGER M16
+M16 -> I3 M17
+M17 -> INTEGER M18
+M18 -> I3 M19
+M19 -> INTEGER M110
+M110 -> W3 J3
+N11 -> VARIABLE N12
+N12 -> L3 N13
+N13 -> VARIABLE J3
+BREAK -> break
+PASS -> pass
+H3 -> continue
+CONTINUE -> H3
+WHILE -> G3 O11
+O11 -> BOOLEAN J3
+FROM -> F3 P11
+P11 -> VAR IMPORT
+E3 -> import
+IMPORT -> E3 VARIABLE | E3 Q11
+D3 -> as
+Q11 -> VARIABLE Q12
+Q12 -> D3 VARIABLE
+C3 -> class
+CLASS -> C3 R11
+R11 -> VARIABLE J3
+LOOPVARIABLE -> LOOPVARIABLE S11 | ALPHABET BACKVARIABLE | Y3 BACKVARIABLE | BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+S11 -> I3 LOOPVARIABLE
+B3 -> def
+DEF -> B3 T11
+T11 -> VARIABLE T12
+T12 -> X3 T13
+T13 -> LOOPVARIABLE T14
+T14 -> W3 J3
+A3 -> if
+IF -> A3 U11
+U11 -> BOOLEAN J3
+Z2 -> elif
+ELIF -> Z2 W11
+W11 -> BOOLEAN J3
+ELSE -> Y2 J3
+X2 -> input
+INPUT -> X2 X11 | TYPECASTING Y11
+X11 -> X3 X12
+X12 -> VARIABLE W3
+Y11 -> X3 Y12
+Y12 -> INPUT W3
+RETURN -> return | RETURN BOOLEAN | RETURN ALLNUMBERS | RETURN VARIABLE | RETURN STRING
+TYPECASTING -> float | int | complex
+ITERABLES -> LIST | TUPLE | SET | DICTIONARY
+ELEMENT -> ELEMENT Z11 | STRING | ALLNUMBERS
+Z11 -> I3 ELEMENT
+W2 -> [
+U2 -> ]
+LIST -> W2 A21 | W2 B21
+A21 -> ELEMENT U2
+B21 -> LIST U2
+TUPLE -> X3 C21 | X3 D21
+C21 -> ELEMENT W3
+D21 -> TUPLE W3
+T2 -> {
+SET -> T2 E21 | T2 F21
+E21 -> ELEMENT S2
+F21 -> SET S2
+DICTELEMENT -> DICTELEMENT G21 | Q3 H21 | Q3 I21
+G21 -> I3 DICTELEMENT
+H21 -> VARIABLE H22
+H22 -> Q3 H23
+H23 -> J3 STRING
+I21 -> VARIABLE I22
+I22 -> Q3 I23
+I23 -> J3 DICTIONARY
+DICTIONARY -> T2 J21
+J21 -> DICTELEMENT S2
+S0 -> START START | VARIABLE A1 | FROM | VARIABLE B1 | A3 U11 | O3 F11 | O3 G11 | K3 K11 | K3 L11 | K3 M11 | K3 N11 | G3 O11 | B3 T11 | C3 R11 | E3 VARIABLE | E3 Q11 | N3 STRING | Q3 H11 | P3 I11

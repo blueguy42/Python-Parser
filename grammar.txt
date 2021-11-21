@@ -1,13 +1,12 @@
 Terminals:
-input print exit # type global str int float complex list tuple range dict set bool bytes ' " ''' """ ( ) [ ] { } + - * / % // ** = += -= *= /= %= //= **= & | ^ ~ << >> &= |= ^= >>= <<= == != > < >= <= and or not is in \" \' \\ \n \r \t \b \f \ooo \xhh true false none for while if else elif pass break continue def return class import dir from as open read readline close write a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 1 2 3 4 5 6 7 8 9 0 : . _ , ;
+input print exit # type global str int float complex list tuple range dict set bool bytes ' " ''' """ ( ) [ ] { } + - * / % // ** = += -= *= /= %= //= **= & ^ ~ << >> &= ^= >>= <<= == != > < >= <= and or not is in \" \' \\ \n \r \t \b \f \ooo \xhh true false none for while if else elif pass break continue def return class import dir from as open read readline close write a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 1 2 3 4 5 6 7 8 9 0 : . _ , ;
 Variables:
 START ASSIGN ALPHABET WHOLEWORD ESCAPE VARIABLE BACKVARIABLE VALUE INTEGER STRING FLOAT BOOLEAN ALLNUMBERS LIST SET DICTIONARY TUPLE COMPLEX NEGATIVEINTEGER NEGATIVEFLOAT OPERATORS COMPARISON ASSIGNMENT FOR WHILE PRINT ASSIGNMENT COMMENT BREAK PASS WHILE FOR IMPORT CLASS LOOPVARIABLE DEF IF ELIF ELSE INPUT RETURN TYPECASTING
 Productions:
 START -> START START | VARIABLE ASSIGN ASSIGNMENT | IF | PRINT | FOR | WHILE | DEF | CLASS | IMPORT | FROM | COMMENT | VARIABLE ASSIGN ITERABLES;
 ASSIGN -> = | += | -= | *= | += | -= | *= | /= | %= | //= | **=;
-// base pembentukan bilangan dan kata
 ALPHABET -> a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z;
-WHOLEWORD -> WHOLEWORD WHOLEWORD | ALPHABET | ESCAPE | \ | : | . | _ | ; | ,;
+WHOLEWORD -> WHOLEWORD WHOLEWORD | ALPHABET | ESCAPE;
 ESCAPE -> \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh;
 INTEGER -> INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0; 
 FLOAT -> INTEGER . INTEGER;
@@ -18,7 +17,6 @@ ALLNUMBERS -> FLOAT | INTEGER | COMPLEX | NEGATIVEFLOAT | NEGATIVEINTEGER;
 VARIABLE -> ALPHABET BACKVARIABLE | _ BACKVARIABLE;
 BACKVARIABLE -> BACKVARIABLE BACKVARIABLE | ALPHABET | INTEGER;
 BOOLEAN -> ( BOOLEAN ) | true | false | BOOLEAN and BOOLEAN | BOOLEAN or BOOLEAN | not BOOLEAN | VALUE is VALUE | VALUE is not VALUE | VALUE COMPARISON VALUE;
-COMPARISON -> > | < | >= | <= | == | !=;
 VALUE -> ( VALUE ) | INTEGER | FLOAT | NEGATIVEFLOAT | NEGATIVEINTEGER | COMPLEX | STRING | BOOLEAN | VALUE COMPARISON VALUE;  
 OPERATORS -> + | - | * | % | ** | / | //;
 STRING -> STRING STRING | ALPHABET | WHOLEWORD | ALLNUMBERS | " STRING " | ' STRING ' | STRING + STRING;
@@ -35,7 +33,6 @@ IMPORT -> import VARIABLE | import VARIABLE as VARIABLE;
 CLASS -> class VARIABLE :;
 LOOPVARIABLE -> LOOPVARIABLE , LOOPVARIABLE | VARIABLE;
 DEF -> def VARIABLE ( LOOPVARIABLE ) :;
-
 IF -> if BOOLEAN :;
 ELIF -> elif BOOLEAN :;
 ELSE -> else :;
@@ -48,4 +45,4 @@ LIST -> [ ELEMENT ] | [ LIST ];
 TUPLE -> ( ELEMENT ) | ( TUPLE );
 SET -> { ELEMENT } | { SET };
 DICTELEMENT -> DICTELEMENT , DICTELEMENT | " VARIABLE " : STRING | " VARIABLE " : DICTIONARY;
-DICTIONARY -> { DICTELEMENT };
+DICTIONARY -> { DICTELEMENT }
