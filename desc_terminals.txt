@@ -1,6 +1,5 @@
 // Referensi CFG : https://people.cs.clemson.edu/~goddard/texts/theoryOfComputation/6a.pdf
 // Referensi keyword list dari Python : https://www.programiz.com/python-programming/keyword-list
-// Isi dari variabel itu semua 
 
 TERMINAL:
 // Introduction to Python (I/O etc.)
@@ -10,7 +9,7 @@ input print exit
 #
 
 // Data Types + Variables
-type global str int float complex list tuple range dict set frozenset bool bytes bytearray memoryview
+type global str int float complex list tuple range dict set frozenset bool bytes bytearray memoryview variable
 
 // Closures
 ' " ''' """ ( ) [ ] { }
@@ -42,7 +41,7 @@ true false none
 // List makenya [] dan bisa make semua yg diatas
 // Tuple cuma bisa count sama index aja, dan dia make () dan bukan []. 
 // Set makenya {}. Deletenya bisa make remove/discard
-// Disctionary mirip2 sama JSON
+// Dictionary mirip2 sama JSON
 
 // All Iterable Objects (List, Set, Dict, Tuple)
 iter next stopiteration

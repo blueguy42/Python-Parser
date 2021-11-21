@@ -1,0 +1,31 @@
+Variables:
+START VARIABLE VALUE INTEGER STRING FLOAT BOOLEAN LIST SET DICTIONARY TUPLE COMPLEX NEGATIVEINTEGER NEGATIVEFLOAT OPERATORS COMPARISON ASSIGNMENT FOR WHILE
+
+Productions:
+// base pembentukan bilangan dan kata
+ALPHABET -> a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z;
+INTEGER -> INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0; 
+
+// base pembentukan datatype float, complex, dan bilangan negatif
+FLOAT -> INTEGER . INTEGER;
+COMPLEX -> FLOAT + FLOAT j | FLOAT - FLOAT j | - FLOAT + FLOAT j | - FLOAT - FLOAT j | INTEGER + FLOAT j | INTEGER - FLOAT j | - INTEGER + FLOAT j | - INTEGER - FLOAT j | FLOAT + INTEGER j | FLOAT - INTEGER j | - FLOAT + INTEGER j | - FLOAT - INTEGER j | INTEGER + INTEGER j | INTEGER - INTEGER j | - INTEGER + INTEGER j | - INTEGER - INTEGER j;
+NEGATIVEINTEGER -> - INTEGER;
+NEGATIVEFLOAT -> - FLOAT
+
+// base pembentukan variable
+VARIABLE -> ALPHABET BACKVARIABLE | _ BACKVARIABLE;
+BACKVARIABLE -> BACKVARIABLE BACKVARIABLE | ALPHABET | INTEGER;
+
+// base pembentukan case boolean (mengembalikan true atau false)
+BOOLEAN -> ( BOOLEAN ) | true | false | BOOLEAN and BOOLEAN | BOOLEAN or BOOLEAN | not BOOLEAN | VALUE is VALUE | VALUE is not VALUE | VALUE COMPARISON VALUE;
+COMPARISON -> > | < | > = | < = | = = | ! =;
+VALUE -> ( VALUE ) | INTEGER | FLOAT | NEGATIVEFLOAT | NEGATIVEINTEGER | COMPLEX | STRING | BOOLEAN | VALUE COMPARISON VALUE;  
+OPERATORS -> + | - | * | % | * * | / | / /;
+
+COMMENT -> # STRING | " " " STRING " " " | ' ' ' STRING ' ' ';
+ASSIGNMENT -> VARIABLE | VALUE | VALUE OPERATORS VALUE | INPUT | METHOD;
+STRING -> STRING STRING | ALPHABET | " ALPHABET " | ' ALPHABET ' | STRING + STRING;
+FOR -> for VARIABLE in range ( INTEGER ) : | for VARIABLE in range ( INTEGER , INTEGER ) : | for VARIABLE in range ( INTEGER , INTEGER , INTEGER ) : | for VARIABLE in VARIABLE :;
+WHILE -> while BOOLEAN :;
+IMPORT -> import VARIABLE | import VARIABLE as VARIABLE;
+CLASS -> class VARIABLE :;
