@@ -29,7 +29,7 @@ def parser_line(filename):
         stripped = f.readlines() # Split input di spasi ke dalam list
         new = []
         for elmt in stripped:
-            new.append(elmt.split())
+            new.append(elmt)
         # print(stripped)
         # for lines in f.readlines():
         #     new = new.append(lines)
@@ -44,17 +44,19 @@ def parser_line(filename):
         # Mengganti operator dengan operator replace
         for content,contentReplace in zip(operator,operatorReplace):
             # result = [string.replace(content,contentReplace) for token in result for string in token]
-            result = [[string.replace(content,contentReplace) for string in token] for token in result]
+            result = [string.replace(content,contentReplace) for string in result]
+        # print(result)
                 
         # Split lagi spasi pada list
         for index, item in enumerate(result):
-            for i in range(len(result[index])):
-                result[index][i] = result[index][i].split(' ')
-                
+            # for i in range(len(result[index])):
+            result[index] = result[index].split()
+        
+        print(result)
     return result
 
 # Usage    
-print(parser("test1.txt")) # ini one line
+# print(parser("test1.txt")) # ini one line
 print("\n")
-print(parser_line("test1.txt")) # ini per line, tapi aturan def sama do_something gaperlu beda bracket lagi, jadinya satu bracket untuk 1 line aja
+parser_line("test1.txt") # ini per line, tapi aturan def sama do_something gaperlu beda bracket lagi, jadinya satu bracket untuk 1 line aja
 
