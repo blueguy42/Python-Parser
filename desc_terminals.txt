@@ -9,7 +9,7 @@ input print exit
 #
 
 // Data Types + Variables
-type global str int float complex list tuple range dict set frozenset bool bytes bytearray memoryview variable
+type global str int float complex list tuple range dict set bool bytes
 
 // Closures
 ' " ''' """ ( ) [ ] { }
