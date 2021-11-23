@@ -14,13 +14,13 @@ P2 -> INTEGER ALPHABET | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
 Q2 -> INTEGER ALPHABET | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
 R3 -> INTEGER ALPHABET | is | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
 S3 -> INTEGER ALPHABET | not | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
-VARIABLE -> ALPHABET BACKVARIABLE | Y3 BACKVARIABLE | BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+VARIABLE -> ALPHABET BACKVARIABLE | Y3 BACKVARIABLE | BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
 START -> START START | VARIABLE A1 | FROM | VARIABLE B1 | A3 U11 | O3 F11 | O3 G11 | K3 K11 | K3 L11 | K3 M11 | K3 N11 | G3 O11 | B3 T11 | C3 R11 | E3 VARIABLE | E3 Q11 | N3 STRING | Q3 H11 | P3 I11
 A1 -> ASSIGN ASSIGNMENT
 B1 -> ASSIGN ITERABLES
 ASSIGN -> = | += | -= | *= | += | -= | *= | /= | %= | //= | **=
-ALPHABET -> a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z
-WHOLEWORD -> WHOLEWORD WHOLEWORD | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
+ALPHABET -> a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z
+WHOLEWORD -> WHOLEWORD WHOLEWORD | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
 ESCAPE -> \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
 INTEGER -> INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
 Z3 -> .
@@ -54,7 +54,7 @@ S2 -> OPERATORS S3 | }
 NEGATIVEINTEGER -> OPERATORS INTEGER
 NEGATIVEFLOAT -> OPERATORS FLOATALLNUMBERS
 Y3 -> _
-BACKVARIABLE -> BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+BACKVARIABLE -> BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
 X3 -> (
 W3 -> )
 BOOLEAN -> X3 T1 | true | false | BOOLEAN U1 | BOOLEAN W1 | S3 BOOLEAN | VALUE X1 | VALUE Y1 | VALUE Z1
@@ -67,11 +67,11 @@ X1 -> R3 VALUE
 Y1 -> R3 Y2
 Y2 -> S3 VALUE | else
 Z1 -> COMPARISON VALUE
-VALUE -> X3 A11 | VALUE B11 | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | INTEGER C1 | OPERATORS FLOATALLNUMBERS | OPERATORS INTEGER | FLOAT D1 | FLOAT E1 | OPERATORS F1 | OPERATORS G1 | INTEGER H1 | INTEGER I1 | OPERATORS J1 | OPERATORS K1 | FLOAT L1 | FLOAT M1 | OPERATORS N1 | OPERATORS O1 | INTEGER P1 | INTEGER Q1 | OPERATORS R1 | OPERATORS S1 | STRING STRING | Q3 C11 | P3 D11 | STRING E11 | X3 T1 | true | false | BOOLEAN U1 | BOOLEAN W1 | S3 BOOLEAN | VALUE X1 | VALUE Y1 | VALUE Z1 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | WHOLEWORD WHOLEWORD | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
+VALUE -> X3 A11 | VALUE B11 | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | INTEGER C1 | OPERATORS FLOATALLNUMBERS | OPERATORS INTEGER | FLOAT D1 | FLOAT E1 | OPERATORS F1 | OPERATORS G1 | INTEGER H1 | INTEGER I1 | OPERATORS J1 | OPERATORS K1 | FLOAT L1 | FLOAT M1 | OPERATORS N1 | OPERATORS O1 | INTEGER P1 | INTEGER Q1 | OPERATORS R1 | OPERATORS S1 | STRING STRING | Q3 C11 | P3 D11 | STRING E11 | X3 T1 | true | false | BOOLEAN U1 | BOOLEAN W1 | S3 BOOLEAN | VALUE X1 | VALUE Y1 | VALUE Z1 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | WHOLEWORD WHOLEWORD | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
 A11 -> VALUE W3
 B11 -> COMPARISON VALUE
 OPERATORS -> + | - | * | % | ** | / | //
-STRING -> STRING STRING | Q3 C11 | P3 D11 | STRING E11 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | WHOLEWORD WHOLEWORD | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
+STRING -> STRING STRING | Q3 C11 | P3 D11 | STRING E11 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | WHOLEWORD WHOLEWORD | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
 Q3 -> "
 C11 -> STRING Q3
 P3 -> '
@@ -93,7 +93,7 @@ I12 -> P3 I13
 I13 -> STRING I14
 I14 -> P3 I15
 I15 -> P3 P3
-ASSIGNMENT -> VALUE J11 | METHOD | ALPHABET BACKVARIABLE | Y3 BACKVARIABLE | X3 A11 | VALUE B11 | X2 X11 | TYPECASTING Y11 | BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | INTEGER C1 | OPERATORS FLOATALLNUMBERS | OPERATORS INTEGER | FLOAT D1 | FLOAT E1 | OPERATORS F1 | OPERATORS G1 | INTEGER H1 | INTEGER I1 | OPERATORS J1 | OPERATORS K1 | FLOAT L1 | FLOAT M1 | OPERATORS N1 | OPERATORS O1 | INTEGER P1 | INTEGER Q1 | OPERATORS R1 | OPERATORS S1 | STRING STRING | Q3 C11 | P3 D11 | STRING E11 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | WHOLEWORD WHOLEWORD | X3 T1 | true | false | BOOLEAN U1 | BOOLEAN W1 | S3 BOOLEAN | VALUE X1 | VALUE Y1 | VALUE Z1 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
+ASSIGNMENT -> VALUE J11 | METHOD | ALPHABET BACKVARIABLE | Y3 BACKVARIABLE | X3 A11 | VALUE B11 | X2 X11 | TYPECASTING Y11 | BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | INTEGER C1 | OPERATORS FLOATALLNUMBERS | OPERATORS INTEGER | FLOAT D1 | FLOAT E1 | OPERATORS F1 | OPERATORS G1 | INTEGER H1 | INTEGER I1 | OPERATORS J1 | OPERATORS K1 | FLOAT L1 | FLOAT M1 | OPERATORS N1 | OPERATORS O1 | INTEGER P1 | INTEGER Q1 | OPERATORS R1 | OPERATORS S1 | STRING STRING | Q3 C11 | P3 D11 | STRING E11 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | WHOLEWORD WHOLEWORD | X3 T1 | true | false | BOOLEAN U1 | BOOLEAN W1 | S3 BOOLEAN | VALUE X1 | VALUE Y1 | VALUE Z1 | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh
 J11 -> OPERATORS VALUE
 M3 -> range
 L3 -> in
@@ -142,7 +142,7 @@ Q12 -> D3 VARIABLE
 C3 -> class
 CLASS -> C3 R11
 R11 -> VARIABLE J3
-LOOPVARIABLE -> LOOPVARIABLE S11 | ALPHABET BACKVARIABLE | Y3 BACKVARIABLE | BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
+LOOPVARIABLE -> LOOPVARIABLE S11 | ALPHABET BACKVARIABLE | Y3 BACKVARIABLE | BACKVARIABLE BACKVARIABLE | a | b | c | d | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0
 S11 -> I3 LOOPVARIABLE
 B3 -> def
 DEF -> B3 T11

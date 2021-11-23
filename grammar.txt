@@ -5,7 +5,7 @@ START ASSIGN ALPHABET WHOLEWORD ESCAPE VARIABLE BACKVARIABLE VALUE INTEGER STRIN
 Productions:
 START -> START START | VARIABLE ASSIGN ASSIGNMENT | IF | PRINT | FOR | WHILE | DEF | CLASS | IMPORT | FROM | COMMENT | VARIABLE ASSIGN ITERABLES;
 ASSIGN -> = | += | -= | *= | += | -= | *= | /= | %= | //= | **=;
-ALPHABET -> a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z;
+ALPHABET -> a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z;
 WHOLEWORD -> WHOLEWORD WHOLEWORD | ALPHABET | ESCAPE;
 ESCAPE -> \" | \' | \\ | \n | \r | \t | \b | \f | \ooo | \xhh;
 INTEGER -> INTEGER INTEGER | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0; 

@@ -1,6 +1,7 @@
 import cyk_parser 
 import py_parser
 import os
+import readgrammar 
 
 # current_directory = os.getcwd()
 # print(current_directory)
@@ -12,10 +13,20 @@ def listToString(s):
 input = py_parser.parser("test1.txt")
 input_multiline = py_parser.parser_line("test1.txt")
 
-inputCyk = listToString(input)
-print('\n')
-print("Oneliner input for CYK:")
-print(inputCyk)
-print('\n')
-print("Multiline input for CYK:")
-print(input_multiline)
+# ini input dari test case spek
+# inputCyk = listToString(input)
+# print('\n')
+# print("Oneliner input for CYK:")
+# print(inputCyk)
+# print(input)
+# print('\n')
+# print("Multiline input for CYK:")
+# print(input_multiline)
+
+variable,terminal = readgrammar.read_grammar("cnf.txt")
+print('vavriable\n')
+print(variable)
+print('terminal\n')
+print(terminal)
+
+cyk_parser.run(variable,terminal)
