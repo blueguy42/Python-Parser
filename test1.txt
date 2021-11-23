@@ -1,4 +1,4 @@
-def do_something(x):
+def do_somthing(x):
     ''' This is a sample multiline comment
     '''
     if x == 0:
