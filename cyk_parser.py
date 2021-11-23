@@ -8,8 +8,20 @@ def run(variable,terminal):
     # terminal = [['A', 'a'], ['B', 'b'], ['C', 'a']]
 
     # Test input
-    input = ['if',':']
+    # input = ['print','(','x','x',')']
+    
+    # input = ['a','a','=','3']
+    
+    # input = ['if','x','>','3',':','import','n','u','m','p','y']
+    
+    # input = ['while','true',':','x','x','=','3']
+    
+    input = ['def', 'd', '(', 'x', ')',':','if','x','==','2',':','b','=','3']
 
+    # input = ['def', 'd', '(', 'x', ')', ':', 'if', 'x', '>', '0', ':', 'x','=', '0', 'elif', 'x', '>', '4',':', 'if', 'true', ':', 'x','=', '3', 'else', ':', 'x','=', '2', 'elif', 'x', '>', '3', ':', 'x','=', '4'] # GABISA
+    
+    # input = ['if','true',':','a','=','2','else',':','b','=','3'] # GABISA
+    
     # INPUT 2
     # string abc dengan jumlah a dan b sama
     # variable = [['S', 'AB'], ['A', 'CD'], ['A', 'CF'], ['B', 'EB'], ['F', 'AD']]
@@ -68,7 +80,7 @@ def run(variable,terminal):
     for i in range(length):
         for term in terminal:
             if input[i] == term[1]:
-                print(term[0])
+                # print(term[0])
                 table[0][i].append(term[0])
             
     # Mengisi baris kedua sampai baris terakhir pada tabel
@@ -88,5 +100,5 @@ def run(variable,terminal):
 
     print("CYK Table:")
     for z in range(length):
-        print(z)
+        # print(z)
         print(table[z])
