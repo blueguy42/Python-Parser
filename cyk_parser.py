@@ -13,11 +13,12 @@ def run(variable,terminal,filename):
     input = py_parser.parser(filename)
     
     # Regex untuk string, number, dan variable
-    regexInput = [r'[A-z0-9]*', r'[0-9]*', r'[A-Za-z_][A-Za-z_0-9]*']
+    regexInput = [r'[A-z0-9]*', r'[0-9]*', r'[A-Za-z_][A-Za-z_0-9]*', r'\s']
     regexMap = {
     r'[A-z0-9]*' : ["string"],
     r'[0-9]*' : ["number"],
     r'[A-Za-z_][A-Za-z_0-9]*' : ["variable"],
+    r'\s' : ["space"],
     }
 
     length = len(input)
