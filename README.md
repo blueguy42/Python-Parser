@@ -4,6 +4,7 @@ Tugas Besar IF2124 Teori Bahasa Formal dan Otomata
 ## Daftar Isi
 * [Informasi Umum](#informasi-umum)
 * [Anggota Kelompok](#anggota-kelompok)
+* [Struktur Folder](#struktur-folder)
 * [Penggunaan](#penggunaan)
 
 ## Informasi Umum
@@ -29,3 +30,8 @@ py parserprogram.py “testcase/test1.py”
 
 Program akan mengembalikan "Accepted" bila sintaks sudah benar dan "Syntax Error!" bila sintaks salah.
 
+Converter dari CFG ke CNF diambil dari referensi https://github.com/adelmassimo/CFG2CNF yang terdapat pada file `CFG2CNF.py` dan `helper.py` dan dapat digunakan untuk menghasilkan grammar CNF yang terbaru dengan menjalankan
+```
+py CFG2CNF.py “grammar.txt”
+```
+dengan grammar CFG diletakkan pada file `grammar.txt` dan hasil grammar CNF disimpan pada file `cnf.txt`
