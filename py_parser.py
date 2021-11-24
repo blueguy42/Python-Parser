@@ -51,20 +51,20 @@ def is_number(string):
 def parser(filename):
     with open(filename, encoding="utf8") as f:
         stripped = f.read().split() # Split input di spasi ke dalam list
-        a = []
+        # a = []
 
-        comment = False
-        for i in stripped:
-            if i in ["'''",'"""','"',"'"] and not comment:
-                a.append(i)
-                comment = True
-            elif i in ["'''",'"""','"',"'"] and comment:
-                comment = False
-                a.append('comment')
+        # comment = False
+        # for i in stripped:
+        #     if i in ["'''",'"""','"',"'"] and not comment:
+        #         a.append(i)
+        #         comment = True
+        #     elif i in ["'''",'"""','"',"'"] and comment:
+        #         comment = False
+        #         a.append('string')
 
-            if not comment:
-                    a.append(i)
-        stripped = a
+        #     if not comment:
+        #             a.append(i)
+        # stripped = a
 
         
         comparison = ['>','>=','<','<=','==','!=']
@@ -83,18 +83,20 @@ def parser(filename):
         # Split lagi spasi pada list
         result = [word for token in result for word in token.split()]
 
-        a = []
-        for i in result:
-            if i in terminals or i=="comment":
-                a.append(i)
-            elif is_number(i):
-                a.append("number")
-            else:
-                if accepts(i,stateP):
-                    a.append("var")
-                else:
-                    return "Invalid variable name!"
-        result = a
+        # a = []
+        # print(result)
+        # for i in result:
+        #     if i in terminals or i=="comment":
+        #         a.append(i)
+        #     elif is_number(i):
+        #         a.append("number")
+        #     else:
+        #         # if accepts(i,stateP):
+        #         a.append("variable")
+        #         # a[i].append('string')
+        #         # else:
+        #         #     return "Invalid variable name!"
+        # result = a
             
     return result
 
@@ -129,10 +131,10 @@ def parser_line(filename):
 
 # Usage    
 a = parser("test2.txt") # ini one line
-print(a)
+# print(a)
 # print("\n")
 # print(parser_line("test1.txt")) # ini per line, tapi aturan def sama do_something gaperlu beda bracket lagi, jadinya satu bracket untuk 1 line aja
 
-# KALO MAU DILANJUTIN KE CYK
-if a != "Invalid variable name!":
-    pass
+# # KALO MAU DILANJUTIN KE CYK
+# if a != "Invalid variable name!":
+#     pass

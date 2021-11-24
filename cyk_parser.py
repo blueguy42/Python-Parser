@@ -1,4 +1,7 @@
-def run(variable,terminal):
+import py_parser
+import re 
+
+def run(variable,terminal,filename):
     # Algoritma CYK
 
     # Input variable production dan terminal dalam bentuk di bawah
@@ -6,30 +9,19 @@ def run(variable,terminal):
     # variable = [['S', 'AB'], ['S', 'BC'], ['A', 'BA'], ['B', 'CC'], ['C', 
     # 'AB']]
     # terminal = [['A', 'a'], ['B', 'b'], ['C', 'a']]
-
-    # Test input
-    # input = ['print','(','x','x',')']
     
-    # input = ['a','a','=','3']
+    input = py_parser.parser(filename)
     
-    # input = ['if','x','>','3',':','import','n','u','m','p','y']
-    
-    # input = ['while','true',':','x','x','=','3']
-    
-    input = ['def', 'd', '(', 'x', ')',':','if','x','==','2',':','b','=','3']
-
-    # input = ['def', 'd', '(', 'x', ')', ':', 'if', 'x', '>', '0', ':', 'x','=', '0', 'elif', 'x', '>', '4',':', 'if', 'true', ':', 'x','=', '3', 'else', ':', 'x','=', '2', 'elif', 'x', '>', '3', ':', 'x','=', '4'] # GABISA
-    
-    # input = ['if','true',':','a','=','2','else',':','b','=','3'] # GABISA
-    
-    # INPUT 2
-    # string abc dengan jumlah a dan b sama
-    # variable = [['S', 'AB'], ['A', 'CD'], ['A', 'CF'], ['B', 'EB'], ['F', 'AD']]
-    # terminal = [['B', 'c'], ['C', 'a'], ['D', 'b'], ['E', 'c']]
-    # input = "aaabbbc"
+    # Regex untuk string, number, dan variable
+    regexInput = [r'[A-z0-9]*', r'[0-9]*', r'[A-Za-z_][A-Za-z_0-9]*']
+    regexMap = {
+    r'[A-z0-9]*' : ["string"],
+    r'[0-9]*' : ["number"],
+    r'[A-Za-z_][A-Za-z_0-9]*' : ["variable"],
+    }
 
     length = len(input)
-    # '
+    
     # Inisialisasi table kosong segitiga atas
     table = [[[] for j in range(length-i)] for i in range(length)]
 
@@ -64,30 +56,49 @@ def run(variable,terminal):
                 return True
 
     # LHS dan RHS pada production variable (non terminal)
-    print("Production Rule Variable:")
+    # print("Production Rule Variable:")
     LHS = [var[0] for var in variable]
-    print('LHS:')
-    print(LHS)
+    # print('LHS:')
+    # print(LHS)
     RHS = [var[1] for var in variable]
-    print('RHS:')
-    print(RHS)
-    print('\n')
-    print("Production Rule Terminal:")
-    print(terminal)
-    print('\n')
+    # print('RHS:')
+    # print(RHS)
+    # print('\n')
+    # print("Production Rule Terminal:")
+    # print(terminal)
+    # print('\n')
 
     # Mengisi baris pertama tabel dengan  production rule yang berkoresponden
+    empty = []
     for i in range(length):
         for term in terminal:
+            # print(term)
             if input[i] == term[1]:
                 # print(term[0])
-                table[0][i].append(term[0])
+                table[0][i].extend([term[0]])
+        if (table[0][i]):
+            continue
+        else:
+            # table[0][i].append('asdasd')
+            for term2 in terminal:
+                for val in term2: # untuk setiap terminal nya
+                    for pattern in regexInput:
+                        for regexType in regexMap[pattern]:
+                            if ([val] == regexMap[pattern]):
+                                if (re.match(pattern, input[i])):
+                                    # print(val)
+                                    # print(term2[1])
+                                    # print(input[i])
+                                    # if val == term2[1]:
+                                        # print(term2[0])
+                                    table[0][i].extend([term2[0]])
             
     # Mengisi baris kedua sampai baris terakhir pada tabel
     for i in range(1,length):
         for j in range(length-i):
             for k in range(i):
                 var_concat = concatenate(table[k][j],table[i-k-1][j+k+1])
+                # print(var_concat)
                 for elmt_RHS in RHS:
                     for elmt in var_concat:
                         if elmt == elmt_RHS:
@@ -102,3 +113,12 @@ def run(variable,terminal):
     for z in range(length):
         # print(z)
         print(table[z])
+    for elmt in table[length-1]:
+        if elmt:
+            for char in elmt:
+                if (char == 'S') or (char == 'S0'):
+                    print("Input Accepted!")
+                    break
+        else:
+            print("Input Rejected!")
+            break
