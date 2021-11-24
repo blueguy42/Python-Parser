@@ -29,7 +29,7 @@ DEF -> def VARIABLE ( LOOPVARIABLE ) :;
 IF -> if BOOLEAN :;
 ELIF -> elif BOOLEAN :;
 ELSE -> else :;
-INPUT -> input ( VARIABLE ) | TYPECASTING ( INPUT );
+INPUT -> input ( VARIABLE ) | TYPECASTING ( INPUT ) | input ( );
 RETURN -> return | return BOOLEAN | return VARIABLE | return STRING;
 TYPECASTING -> float | int | complex;
 ITERABLES -> LIST | TUPLE | SET | DICTIONARY;
