@@ -11,4 +11,4 @@ def do_something(x):
     elif x == 32:
         return 4
     else:
-        return “Doodoo”
+        return "Doodoo"

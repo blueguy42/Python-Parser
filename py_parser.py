@@ -130,7 +130,7 @@ def parser_line(filename):
     return result
 
 # Usage    
-a = parser("test2.txt") # ini one line
+# a = parser("test2.txt") # ini one line
 # print(a)
 # print("\n")
 # print(parser_line("test1.txt")) # ini per line, tapi aturan def sama do_something gaperlu beda bracket lagi, jadinya satu bracket untuk 1 line aja
