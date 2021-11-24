@@ -27,6 +27,5 @@ def read_grammar(filename):
                 # it is a variable
                 else:
                     v_rules.append([left, ri.replace(" ", "")])
-        # print(v_rules)
-        # print(t_rules)
+
         return v_rules, t_rules
