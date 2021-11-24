@@ -4,7 +4,6 @@ Tugas Besar IF2124 Teori Bahasa Formal dan Otomata
 ## Daftar Isi
 * [Informasi Umum](#informasi-umum)
 * [Anggota Kelompok](#anggota-kelompok)
-* [Struktur Folder](#struktur-folder)
 * [Penggunaan](#penggunaan)
 
 ## Informasi Umum
@@ -34,4 +33,4 @@ Converter dari CFG ke CNF diambil dari referensi https://github.com/adelmassimo/
 ```
 py CFG2CNF.py “grammar.txt”
 ```
-dengan grammar CFG diletakkan pada file `grammar.txt` dan hasil grammar CNF disimpan pada file `cnf.txt`
+dengan grammar CFG diletakkan pada file `grammar.txt` dan hasil grammar CNF disimpan pada file `cnf.txt`.
