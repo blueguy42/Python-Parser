@@ -23,7 +23,7 @@ print('\n')
 # print("Multiline input for CYK:")
 # print(input_multiline)
 
-variable,terminal = readgrammar.read_grammar("cnftest.txt")
+variable,terminal = readgrammar.read_grammar("cnf.txt")
 # print('vavriable\n')
 # print(variable)
 # print('terminal\n')
