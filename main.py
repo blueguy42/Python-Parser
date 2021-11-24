@@ -1,14 +1,14 @@
 import cyk_parser 
 import py_parser
-import readgrammar 
+import readcnf 
 import sys
 
 inputfile = sys.argv[1]
 input = py_parser.parser(inputfile)
 
-print("Oneliner input for CYK:")
-print(input)
+# print("Oneliner input for CYK:")
+# print(input)
 
-variable,terminal = readgrammar.read_grammar("cnf.txt")
+variable,terminal = readcnf.read("cnf.txt")
 
 cyk_parser.run(variable,terminal,inputfile)

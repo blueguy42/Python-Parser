@@ -66,10 +66,9 @@ def run(variable,terminal,filename):
             for term2 in terminal:
                 for val in term2: # untuk setiap terminal nya
                     for pattern in regexInput:
-                        for regexType in regexMap[pattern]:
-                            if ([val] == regexMap[pattern]):
-                                if (re.match(pattern, input[i])):
-                                    table[0][i].extend([term2[0]])
+                        if ([val] == regexMap[pattern]):
+                            if (re.match(pattern, input[i])):
+                                table[0][i].extend([term2[0]])
             
     # Mengisi baris kedua sampai baris terakhir pada tabel
     for i in range(1,length):
@@ -86,9 +85,9 @@ def run(variable,terminal,filename):
                                 else:
                                     table[i][j].append(LHS[index[m]])
 
-    print("CYK Table:")
-    for z in range(length):
-        print(table[z])
+    # print("CYK Table:")
+    # for z in range(length):
+    #     print(table[z])
     for elmt in table[length-1]:
         if elmt:
             for char in elmt:
