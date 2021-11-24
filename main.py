@@ -2,6 +2,7 @@ import cyk_parser
 import py_parser
 import os
 import readgrammar 
+import sys
 
 # current_directory = os.getcwd()
 # print(current_directory)
@@ -10,8 +11,9 @@ def listToString(s):
     str1 = "" 
     return (str1.join(s))
 
-input = py_parser.parser("test2.txt")
-input_multiline = py_parser.parser_line("test1.txt")
+inputfile = sys.argv[1]
+input = py_parser.parser(inputfile)
+# input_multiline = py_parser.parser_line("test1.txt")
 
 # ini input dari test case spek
 # inputCyk = listToString(input)
@@ -32,4 +34,4 @@ variable,terminal = readgrammar.read_grammar("cnf.txt")
 # 'AB']]
 # terminal = [['A', 'a'], ['B', 'b'], ['C', 'a']]
 
-cyk_parser.run(variable,terminal,"test2.txt")
+cyk_parser.run(variable,terminal,inputfile)

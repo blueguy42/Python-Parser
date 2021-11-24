@@ -118,8 +118,8 @@ def run(variable,terminal,filename):
         if elmt:
             for char in elmt:
                 if (char == 'S') or (char == 'S0'):
-                    print("Input Accepted!")
+                    print("Accepted!")
                     break
         else:
-            print("Input Rejected!")
+            print("Syntax Error!")
             break
