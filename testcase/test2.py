@@ -1,5 +1,5 @@
-def do_something(x):
-    ''' This a sample multiline comment
+def lakukan_sesuatu(x):
+    ''' Ini adalah komentar multiline
     '''
     x + 2 = 3
     if x == 0 + 1
@@ -10,4 +10,4 @@ def do_something(x):
     elif x == 32:
         return 4
     else:
-        return "Doodoo"
+        return "subhanallah"
